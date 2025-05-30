@@ -1,14 +1,25 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
+import { BrowserRouter , Router, Route, Routes } from 'react-router-dom'
+import Notes from './Pages/notes.jsx'
+import NavBar from './Components/navBar.jsx'
+import Post from './Pages/post.jsx'
+import axios from 'axios'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
     <>
-      <div>
-        <h1>Mini Twitter</h1>
-      </div>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<Notes/>} />
+          <Route path="/post" element={<Post/>} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
